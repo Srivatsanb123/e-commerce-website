@@ -1,4 +1,4 @@
-'use strict'; // Enforce strict mode
+'use client'; // Enforce strict mode
 
 import React, { useState, useEffect } from 'react';
 import Footer from './components/Footer';
