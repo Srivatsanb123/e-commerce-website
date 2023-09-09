@@ -1,13 +1,17 @@
-'use client'
+'use strict'; // Enforce strict mode
+
 import React from 'react';
 import Footer from '../components/Footer';
+import Link from 'next/link'; // Import Link
 
 function AboutPage() {
   return (
     <div>
       <h1 className="bg-cyan-600 text-4xl text-center font-semibold p-4">
         E-commerce Website
-        <a href='./' className="text-center text-lg cursor-pointer text-black float-right">Home</a>
+        <Link href="/">
+          <a className="text-center text-lg cursor-pointer text-black float-right">Home</a>
+        </Link>
       </h1>
       <div className="container mx-auto mt-4">
         <h2 className="text-2xl font-semibold mb-4">About Us</h2>

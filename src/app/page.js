@@ -1,6 +1,9 @@
-'use client'
+'use strict'; // Enforce strict mode
+
 import React, { useState, useEffect } from 'react';
 import Footer from './components/Footer';
+import Image from 'next/image'; // Import Image component from next/image
+import Link from 'next/link'; // Import Link
 
 const products = [
   {
@@ -77,7 +80,6 @@ const products = [
   }
 ];
 
-
 const bannerImages = [
   'https://mlv7w27xbskj.i.optimole.com/9K6CnE8-qwMJQo4-/w:auto/h:auto/q:auto/https://toledogoldexchange.com/wp-content/uploads/2017/02/electronics-sale-banner-2._V346923865_.png',
   'https://1.bp.blogspot.com/-K23yk2qs1MI/Xr8Oor_OIUI/AAAAAAAAdHE/9fonl-jUs4UxKqx4uVxJjVjt7rUgp1VzgCLcBGAsYHQ/w1200-h630-p-k-no-nu/Electronic%2BSales%2BPoster.jpg',
@@ -88,7 +90,6 @@ function ProductsPage() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
-    // Automatically switch to the next image every 5 seconds
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) =>
         prevIndex === bannerImages.length - 1 ? 0 : prevIndex + 1
@@ -102,14 +103,17 @@ function ProductsPage() {
     <div>
       <h1 className="bg-cyan-600 text-4xl text-center font-semibold p-4">
         E-commerce Website
-        <a href='./about' className="text-center text-lg cursor-pointer text-black float-right">About</a>
+        <Link href="/about">
+          <a className="text-center text-lg cursor-pointer text-black float-right">About</a>
+        </Link>
       </h1>
       <div className="container mx-auto mt-4 mb-4">
         <div className="banner-container">
-          <img
+          <Image
             src={bannerImages[currentImageIndex]}
-            className="banner-image"
             alt="Banner"
+            width={800} // Set the appropriate width
+            height={400} // Set the appropriate height
           />
         </div>
         <h2 className="text-2xl font-semibold mb-4">Products</h2>
@@ -119,10 +123,11 @@ function ProductsPage() {
               key={product.id}
               className="bg-white p-4 flex flex-col items-center justify-between shadow rounded"
             >
-              <img
+              <Image
                 src={product.image}
                 alt={product.name}
-                className="w-48 h-48 object-contain"
+                width={200} // Set the appropriate width
+                height={200} // Set the appropriate height
               />
               <h2 className="text-black text-xl font-semibold my-2">
                 {product.name}
