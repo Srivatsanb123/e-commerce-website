@@ -25,3 +25,20 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.banner-container {
+  overflow: hidden;
+  position: relative;
+  max-height: 300px; /* Adjust the desired height */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+.banner-image {
+  max-height: 400px; /* Adjust the desired height */
+  width: auto;
+  height: 400;
+  max-width: 100%;
+  transition: opacity 1s ease-in-out;
+}
